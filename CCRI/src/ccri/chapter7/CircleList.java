@@ -5,6 +5,7 @@
 package ccri.chapter7;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -63,16 +64,16 @@ public class CircleList
 	
 	
 	/**
-	 * The setCircleList creates the array of circles with a length of this.maxCircles.
+	 * The setCircleList creates the array of circles with a random length between 0 and this.maxCircles.
 	 * Each Circle added to the array will have a random size between 1-100.
 	 */
 	private void setCircleList()
 	{
-		this.circleList = new Circle[this.maxCircles];
+		this.circleList = new Circle[random.nextInt(this.maxCircles + 1)];
 		
-		for (int i = 0; i < this.maxCircles; i++)
+		for (int i = 0; i < this.circleList.length; i++)
 		{
-			this.circleList[i] = new Circle(this.random.nextDouble(100 + 1));
+			this.circleList[i] = new Circle(this.random.nextDouble(101));
 		}
 		
 	} // End setCircleList()
@@ -99,7 +100,7 @@ public class CircleList
 			this.sortedCircleList[i] = this.circleList[i];
 		}
 		
-		// Use Selection Sort to organize list in ascending order
+		// Use selection sorting to organize list in ascending order
 		for (scan = 0; scan < (this.sortedCircleList.length-1); scan++)
 		{
 			minIndex = scan;
@@ -115,9 +116,51 @@ public class CircleList
 			}
 			this.sortedCircleList[minIndex] = this.sortedCircleList[scan];
 			this.sortedCircleList[scan] = minValue;
-		}
+		} // End selection sorting
 		
 	} // End setSortedCircleList method.
+	
+	
+	/**
+	 * The setCircleArray creates the arrayList object list of circles, with a random length between 0 and the this.maxCircles.
+	 * It then creates a Circle object for each index, with a random radius between 1 and 100.
+	 */
+	private void setCircleArray()
+	{
+		int size = this.random.nextInt(this.maxCircles + 1);
+		
+		for (int i = 0; i < size; i++)
+		{
+			this.circleArray.add(new Circle(this.random.nextDouble(101)));
+		}
+	} // End setCircleArray method.
+	
+	
+	/**
+	 * The setSortedCircleArray method will copy the circleArray list to the sortedCircleArray list.
+	 * It will then sort it in ascending order.
+	 */
+	private void setSortedCircleArray()
+	{
+		// Copy circleArray to sortedCircleArray
+		for (int i = 0; i < this.circleArray.size(); i++)
+		{
+			this.sortedCircleArray.add(this.circleArray.get(i));
+		}
+		
+		// Sort sortedArrayList
+		for (int i = 0; i < this.sortedCircleArray.size(); i++)
+		{
+			for (int index = 0; index < this.sortedCircleArray.size(); index++)
+			{
+				if (this.sortedCircleArray.get(index).getRadius() > this.sortedCircleArray.get(i).getRadius())
+				{
+					Collections.swap(this.sortedCircleArray, i, index);
+				}
+			}
+		}
+		
+	} // End setSortedCircleArray method.
 	
 	
 	/**
@@ -132,28 +175,15 @@ public class CircleList
 		// Create traditional array
 		this.setCircleList();
 		
-		// TODO Create arrayList
+		// Create arrayList
+		this.setCircleArray();
 		
 		// Create sorted traditional array
 		this.setSortedCircleList();
 		
-		// TODO Create sorted arrayList
+		// Create sorted arrayList
+		this.setSortedCircleArray();
 		
 	} // End CircleList constructor
-
-	public void test() {
-		System.out.println("Circle Radius List: ");
-		
-		for (int i = 0; i < this.circleList.length; i++)
-		{
-			System.out.println(this.circleList[i].getRadius());
-		}
-		
-		System.out.println("\n\nSorted Circle Radius List: ");
-		for (int i = 0; i < this.sortedCircleList.length; i++)
-		{
-			System.out.println(this.sortedCircleList[i].getRadius());
-		}
-	}
 	
 } // End CircleList class.
