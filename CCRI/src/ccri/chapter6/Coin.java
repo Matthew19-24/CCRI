@@ -1,8 +1,8 @@
-package ccri.chapter6;
-
 /**
  * The coin class simulates a coin that gets tossed, heads and tails.
  */
+
+package ccri.chapter6;
 
 import java.util.Random;
 

@@ -1,9 +1,9 @@
-package ccri.chapter6;
-
 /**
  * The Employee class creates an instance for employee's in the company,
  * holding their name, ID number, department and position as fields.
  */
+
+package ccri.chapter6;
 
 /**
  * @author <b>Author</b>: Matthew McCaughey

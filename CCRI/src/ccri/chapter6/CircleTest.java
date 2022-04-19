@@ -1,8 +1,8 @@
-package ccri.chapter6;
-
 /**
  * This program will test the Circle class.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

@@ -1,8 +1,8 @@
-package ccri.chapter6;
-
 /**
  * The RouletteWheelColors class is able to determine the color of a pocket on a roulette wheel by number.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

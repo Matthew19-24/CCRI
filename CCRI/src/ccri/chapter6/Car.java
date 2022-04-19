@@ -1,9 +1,9 @@
-package ccri.chapter6;
-
 /**
  * The Car class creates an instance of for a car,
  * holding it's model year, make, and current speed.
  */
+
+package ccri.chapter6;
 
 /**
  * @author <b>Author</b>: Matthew McCaughey

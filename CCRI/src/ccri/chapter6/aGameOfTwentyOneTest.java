@@ -1,8 +1,8 @@
-package ccri.chapter6;
-
 /**
  * This program tests the aGameOfTwentyOne class. Playing a game of Twenty One until the user wants to quit.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

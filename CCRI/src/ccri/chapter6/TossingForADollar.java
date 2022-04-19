@@ -1,5 +1,3 @@
-package ccri.chapter6;
-
 /**
  * TossingForADollar will work as a game. Each round will flip three coins,
  * a quarter, a nickel and a dime. Each time that a coin lands on heads,
@@ -7,6 +5,8 @@ package ccri.chapter6;
  * continue to flip until they reach or exceed $1. If they get exactly $1, the
  * player wins, if they exceed $1, the player loses.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

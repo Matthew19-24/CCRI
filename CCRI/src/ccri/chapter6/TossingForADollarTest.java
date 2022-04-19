@@ -1,8 +1,8 @@
-package ccri.chapter6;
-
 /**
  * This program will test the TossingForADollar class.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

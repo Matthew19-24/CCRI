@@ -1,8 +1,8 @@
-package ccri.chapter6;
-
 /**
  * The EmployeeTest class is a test class for the Employee POJO
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

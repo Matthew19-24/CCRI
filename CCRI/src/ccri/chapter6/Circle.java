@@ -1,10 +1,10 @@
-package ccri.chapter6;
-
 /**
  * The Circle class creates an instance of a circle.
  * Taking a radius as an argument, and able to calculate
  * it's area, circumference and it's diameter.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

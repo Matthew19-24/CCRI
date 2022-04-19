@@ -1,9 +1,9 @@
-package ccri.chapter6;
-
 /**
  * The aGameOfTwentyOne class creates an instance simulating the
  * functionality of a black jack game with dice.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 

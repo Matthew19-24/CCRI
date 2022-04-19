@@ -1,9 +1,9 @@
-package ccri.chapter6;
-
 /**
  * An instance of this class represents a users bank account,
  * with the ability to withdraw, deposit, and calculate the monthly interest.
  */
+
+package ccri.chapter6;
 
 import javax.swing.JOptionPane;
 
