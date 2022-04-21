@@ -164,6 +164,27 @@ public class CircleList
 	
 	
 	/**
+	 * The getMin method will get the minimum radius in a traditional Circle array as a percentage decimal.
+	 * @param circles A Circle array.
+	 * @return Minimum radius as a decimal.
+	 */
+	private double getMin(Circle[] circles)
+	{
+		double min = circles[0].getRadius();
+		
+		for (int i = 1; i < circles.length; i++)
+		{
+			if (circles[i].getRadius() < min)
+			{
+				min = circles[i].getRadius();
+			}
+		} //TODO Finish switching decimal places.
+		
+		return min;
+	} // End getMin method.
+	
+	
+	/**
 	 * Constructor
 	 * @param max Maximum number of circles to create the lists.
 	 */
