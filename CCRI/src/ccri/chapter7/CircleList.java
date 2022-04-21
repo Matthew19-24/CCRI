@@ -52,6 +52,11 @@ public class CircleList
 	 */
 	private Random random = new Random();
 	
+	/**
+	 * Used to convert a number to a percentage decimal.
+	 */
+	final private double DECIMAL = .01;
+	
 	
 	/**
 	 * The setMaxCircles method sets the value in the maxCircles field.
@@ -73,7 +78,7 @@ public class CircleList
 		
 		for (int i = 0; i < this.circleList.length; i++)
 		{
-			this.circleList[i] = new Circle(this.random.nextDouble(101));
+			this.circleList[i] = new Circle(this.random.nextDouble(99) + 1);
 		}
 		
 	} // End setCircleList()
@@ -131,7 +136,7 @@ public class CircleList
 		
 		for (int i = 0; i < size; i++)
 		{
-			this.circleArray.add(new Circle(this.random.nextDouble(101)));
+			this.circleArray.add(new Circle(this.random.nextDouble(99) + 1));
 		}
 	} // End setCircleArray method.
 	
@@ -166,22 +171,174 @@ public class CircleList
 	/**
 	 * The getMin method will get the minimum radius in a traditional Circle array as a percentage decimal.
 	 * @param circles A Circle array.
-	 * @return Minimum radius as a decimal.
+	 * @return Minimum radius as a percentage decimal.
 	 */
 	private double getMin(Circle[] circles)
 	{
-		double min = circles[0].getRadius();
+		double min = 101;
 		
-		for (int i = 1; i < circles.length; i++)
+		for (int i = 0; i < circles.length; i++)
 		{
 			if (circles[i].getRadius() < min)
 			{
 				min = circles[i].getRadius();
 			}
-		} //TODO Finish switching decimal places.
+		} 
 		
-		return min;
+		// Return 0 if no minimum was found
+		if (min == 101)
+		{
+			return 0;
+		}
+		
+		return Math.floor(min) * this.DECIMAL;
+		
 	} // End getMin method.
+	
+	/**
+	 * The getMin method will get the minimum radius in a Circle ArrayList as a percentage decimal.
+	 * @param circles A Circle Array List.
+	 * @return Minimum radius as a percentage decimal.
+	 */
+	private double getMin(ArrayList<Circle> circles)
+	{
+		double min = 101;
+		
+		for (int i = 0; i < circles.size(); i++)
+		{
+			if (circles.get(i).getRadius() < min)
+			{
+				min = circles.get(i).getRadius();
+			}
+		}
+		
+		// Return 0 if no minimum was found
+		if (min == 101)
+		{
+			return 0;
+		}
+		
+		return Math.floor(min) * this.DECIMAL;
+		
+	} // End getMin method.
+		
+	/**
+	 * The getMax method will get the maximum radius in a traditional Circle array as a percentage decimal.
+	 * @param circles A Circle Array.
+	 * @return Maximum radius as a percentage decimal.
+	 */
+	private double getMax(Circle[] circles)
+	{
+		double max = 0;
+		
+		for (int i = 0; i < circles.length; i++)
+		{
+			if (circles[i].getRadius() > max)
+			{
+				max = circles[i].getRadius();
+			}
+		}
+		
+		return Math.floor(max) * this.DECIMAL;
+		
+	} // End getMax method.
+	
+	
+	/**
+	 * The getMax method will get the maximum radius in a Circle ArrayList as a percentage decimal.
+	 * @param circles A Circle Array List.
+	 * @return Maximum radius as a percentage decimal.
+	 */
+	private double getMax(ArrayList<Circle> circles)
+	{
+		double max = 0;
+		
+		for (int i = 0; i < circles.size(); i++)
+		{
+			if (circles.get(i).getRadius() > max)
+			{
+				max = circles.get(i).getRadius();
+			}
+		}
+		
+		return Math.floor(max) * this.DECIMAL;
+	} // End getMax method.
+	
+	
+	/**
+	 * The getAverage method will calculate the average radius in a traditional Circle array as a percentage decimal.
+	 * @param circles A Circle array.
+	 * @return The average radius of the array as a percentage decimal.
+	 */
+	private double getAverage(Circle[] circles)
+	{
+		double total = 0;
+		double average = 0;
+		
+		for (int i = 0; i < circles.length; i++)
+		{
+			total += circles[i].getRadius();
+		}
+		
+		average = total / circles.length;
+		
+		return Math.floor(average) * this.DECIMAL;
+	} // End getAverage method.
+	
+	
+	/**
+	 * The getAverage method will calculate the average radius in a Circle ArrayList as a percentage decimal.
+	 * @param circles A Circle ArrayList.
+	 * @return The average radius of the array as a percentage decimal.
+	 */
+	private double getAverage(ArrayList<Circle> circles)
+	{
+		double total = 0;
+		double average = 0;
+		
+		for (int i = 0; i < circles.size(); i++)
+		{
+			total += circles.get(i).getRadius();
+		}
+		
+		average = total / circles.size();
+		
+		return Math.floor(average) * this.DECIMAL;
+		
+	} // End getAverage method.
+	
+	
+	/**
+	 * Gets metrics (max, min, average) for a traditional Circle array.
+	 * @param circles An array of Circle.
+	 * @return An array of java.lang.Doubles, which are the max, min and average.
+	 */
+	private Double[] metrics(Circle[] circles)
+	{
+		Double[] metrics = new Double[3];
+		
+		metrics[0] = this.getMax(circles);
+		metrics[1] = this.getMin(circles);
+		metrics[2] = this.getAverage(circles);
+		
+		return metrics;
+	}
+	
+	/**
+	 * Gets metrics (max, min, average) for a Circle ArrayList
+	 * @param circles An ArrayList of Circle
+	 * @return An ArrayList of java.lang.Doubles, which are the max, min and average.
+	 */
+	private ArrayList<Double> metrics(ArrayList<Circle> circles)
+	{
+		ArrayList<Double> metrics = new ArrayList<Double>();
+		
+		metrics.add(this.getMax(circles));
+		metrics.add(this.getMin(circles));
+		metrics.add(this.getAverage(circles));
+		
+		return metrics;
+	}
 	
 	
 	/**
