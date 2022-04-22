@@ -52,11 +52,6 @@ public class CircleList
 	 */
 	private Random random = new Random();
 	
-	/**
-	 * Used to convert a number to a percentage decimal.
-	 */
-	final private double DECIMAL = .01;
-	
 	
 	/**
 	 * The setMaxCircles method sets the value in the maxCircles field.
@@ -191,7 +186,7 @@ public class CircleList
 			return 0;
 		}
 		
-		return Math.floor(min) * this.DECIMAL;
+		return min;
 		
 	} // End getMin method.
 	
@@ -218,7 +213,7 @@ public class CircleList
 			return 0;
 		}
 		
-		return Math.floor(min) * this.DECIMAL;
+		return min;
 		
 	} // End getMin method.
 		
@@ -239,7 +234,7 @@ public class CircleList
 			}
 		}
 		
-		return Math.floor(max) * this.DECIMAL;
+		return max;
 		
 	} // End getMax method.
 	
@@ -261,7 +256,7 @@ public class CircleList
 			}
 		}
 		
-		return Math.floor(max) * this.DECIMAL;
+		return max;
 	} // End getMax method.
 	
 	
@@ -282,7 +277,7 @@ public class CircleList
 		
 		average = total / circles.length;
 		
-		return Math.floor(average) * this.DECIMAL;
+		return average;
 	} // End getAverage method.
 	
 	
@@ -303,7 +298,7 @@ public class CircleList
 		
 		average = total / circles.size();
 		
-		return Math.floor(average) * this.DECIMAL;
+		return average;
 		
 	} // End getAverage method.
 	
@@ -322,7 +317,7 @@ public class CircleList
 		metrics[2] = this.getAverage(circles);
 		
 		return metrics;
-	}
+	} // End metrics method.
 	
 	/**
 	 * Gets metrics (max, min, average) for a Circle ArrayList
@@ -338,7 +333,66 @@ public class CircleList
 		metrics.add(this.getAverage(circles));
 		
 		return metrics;
+	} // End metrics method.
+	
+	
+	/**
+	 * Compare the two traditional array Circles based on their position in the list.
+	 * Each circle is compared positionally and totals are counted for the number that are less,
+	 * the same, more or cannot be compared.
+	 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
+	 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
+	 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
+	 */
+	private ArrayList<Double> compareLists(Circle[] listLess, Circle[] listMore)
+	{
+		// Set variables
+		double less = 0;
+		double equal = 0;
+		double more = 0;
+		double none = 0;
+		
+		// Compare lists.
+		for (int i = 0; i < listLess.length; i++)
+		{
+			if (listLess[i].getRadius() < listMore[i].getRadius())
+			{
+				less += 1;
+			}
+			else if (listLess[i].getRadius() == listMore[i].getRadius())
+			{
+				equal += 1;
+			}
+			else if (listLess[i].getRadius() > listMore[i].getRadius())
+			{
+				more += 1;
+			}
+		}
+		none = listMore.length - listLess.length;
+		
+		// Create ArrayList object.
+		ArrayList<Double> compare = new ArrayList<Double>();
+		
+		// Add metrics to ArrayList.
+		compare.add(less);
+		compare.add(equal);
+		compare.add(more);
+		compare.add(none);
+		
+		return compare;
+		
+	} // End compareLists method.
+	
+	
+	// TODO Add traditional to ArrayList
+	private ArrayList<Double> compareLists(Circle[] listLess, ArrayList<Circle> listMore)
+	{
+		
 	}
+	
+	// TODO Add ArrayList to traditional
+	
+	// TODO Add ArrayList to ArrayList
 	
 	
 	/**
