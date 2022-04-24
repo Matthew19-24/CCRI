@@ -384,7 +384,14 @@ public class CircleList
 	} // End compareLists method.
 	
 	
-	// TODO JavaDoc description.
+	/**
+	 * Compare a traditional arrays Circles and an ArrayLists Circles based on their position in the list.
+	 * Each circle is compared positionally and totals are counted for the number that are less,
+	 * the same, more or cannot be compared.
+	 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
+	 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
+	 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
+	 */
 	private ArrayList<Double> compareLists(Circle[] listLess, ArrayList<Circle> listMore)
 	{
 		// Set variables
@@ -423,7 +430,14 @@ public class CircleList
 		
 	} // End compareLists method.
 	
-	// TODO JavaDoc description
+	/**
+	 * Compare an ArrayLists Circles and a traditional arrays Circles based on their position in the list.
+	 * Each circle is compared positionally and totals are counted for the number that are less,
+	 * the same, more or cannot be compared.
+	 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
+	 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
+	 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
+	 */
 	private ArrayList<Double> compareLists(ArrayList<Circle> listLess, Circle[] listMore)
 	{
 		// Set variables
@@ -460,7 +474,14 @@ public class CircleList
 			
 	} // End compareLists method.
 	
-	// TODO JavaDoc description.
+		/**
+		 * Compare two ArrayLists Circles based on their position in the list.
+		 * Each circle is compared positionally and totals are counted for the number that are less,
+		 * the same, more or cannot be compared.
+		 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
+		 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
+		 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
+		 */
 	private ArrayList<Double> compareLists(ArrayList<Circle> listLess, ArrayList<Circle> listMore)
 	{
 		// Set variables
@@ -496,6 +517,14 @@ public class CircleList
 			return compare;
 			
 	} // End compareLists method.
+		
+		
+		// TODO The traditional array to the sorted traditional array.
+		
+		
+		// TODO The java.util.ArrayList to the sorted java.util.ArrayList.
+		// TODO The traditional array to the java.util.ArrayList.
+		// TODO The sorted traditional array to the sorted java.util.ArrayList
 	
 	
 	/**
