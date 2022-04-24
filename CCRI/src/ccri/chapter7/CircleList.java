@@ -384,15 +384,118 @@ public class CircleList
 	} // End compareLists method.
 	
 	
-	// TODO Add traditional to ArrayList
+	// TODO JavaDoc description.
 	private ArrayList<Double> compareLists(Circle[] listLess, ArrayList<Circle> listMore)
 	{
+		// Set variables
+		double less = 0;
+		double equal = 0;
+		double more = 0;
+		double none = 0;
 		
-	}
+		for (int i = 0; i < listLess.length; i++)
+		{
+			if (listLess[i].getRadius() < listMore.get(i).getRadius())
+			{
+				less +=1;
+			}
+			else if (listLess[i].getRadius() == listMore.get(i).getRadius())
+			{
+				equal += 1;
+			}
+			else if (listLess[i].getRadius() > listMore.get(i).getRadius())
+			{
+				more += 1;
+			}
+			
+			// Create ArrayList object.
+			ArrayList<Double> compare = new ArrayList<Double>
+			
+			// Add metrics to ArrayList.
+			compare.add(less);
+			compare.add(equal);
+			compare.add(more);
+			compare.add(none);
+			
+			return compare;
+			
+		}
+		
+	} // End compareLists method.
 	
-	// TODO Add ArrayList to traditional
+	// TODO JavaDoc description
+	private ArrayList<Double> compareLists(ArrayList<Circle> listLess, Circle[] listMore)
+	{
+		// Set variables
+		double less = 0;
+		double equal = 0;
+		double more = 0;
+		double none = 0;
+				
+		for (int i = 0; i < listLess.length; i++)
+		{
+			if (listLess.get(i).getRadius() < listMore[i].getRadius())
+			{
+				less +=1;
+			}
+			else if (listLess.get(i).getRadius() == listMore[i].getRadius())
+			{
+				equal += 1;
+			}
+			else if (listLess.get(i).getRadius() > listMore[i].getRadius())
+			{
+				more += 1;
+			}
+			
+			// Create ArrayList object.
+			ArrayList<Double> compare = new ArrayList<Double>
+			
+			// Add metrics to ArrayList.
+			compare.add(less);
+			compare.add(equal);
+			compare.add(more);
+			compare.add(none);
+			
+			return compare;
+			
+	} // End compareLists method.
 	
-	// TODO Add ArrayList to ArrayList
+	// TODO JavaDoc description.
+	private ArrayList<Double> compareLists(ArrayList<Circle> listLess, ArrayList<Circle> listMore)
+	{
+		// Set variables
+		double less = 0;
+		double equal = 0;
+		double more = 0;
+		double none = 0;
+				
+		for (int i = 0; i < listLess.length; i++)
+		{
+			if (listLess.get(i).getRadius() < listMore.get(i).getRadius())
+			{
+				less +=1;
+			}
+			else if (listLess.get(i).getRadius() == listMore.get(i).getRadius())
+			{
+				equal += 1;
+			}
+			else if (listLess.get(i).getRadius() > listMore.get(i).getRadius())
+			{
+				more += 1;
+			}
+			
+			// Create ArrayList object.
+			ArrayList<Double> compare = new ArrayList<Double>
+			
+			// Add metrics to ArrayList.
+			compare.add(less);
+			compare.add(equal);
+			compare.add(more);
+			compare.add(none);
+			
+			return compare;
+			
+	} // End compareLists method.
 	
 	
 	/**
