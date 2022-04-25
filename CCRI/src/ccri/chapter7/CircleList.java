@@ -519,12 +519,8 @@ public class CircleList
 	} // End compareLists method.
 		
 		
-		// TODO The traditional array to the sorted traditional array.
-		
-		
-		// TODO The java.util.ArrayList to the sorted java.util.ArrayList.
-		// TODO The traditional array to the java.util.ArrayList.
-		// TODO The sorted traditional array to the sorted java.util.ArrayList
+	// TODO customerMetrics (PUBLIC)
+	// TODO customerComparedMetrics (PUBLIC)
 	
 	
 	/**
