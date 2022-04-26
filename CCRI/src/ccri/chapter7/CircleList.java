@@ -1,5 +1,9 @@
 /**
- * TODO Add description
+ * Circle Array POJO for www.ShapeArray.com.
+ * Creates traditional arrays and java.util.ArrayList's of Circle objects
+ * It creates sorted versions of these lists.
+ * Generating metrics for max, min, and average radius's in each list.
+ * Also comparing each list to one another.
  */
 
 package ccri.chapter7;
@@ -9,6 +13,12 @@ import java.util.Collections;
 import java.util.Random;
 
 /**
+ * Circle Array POJO for www.ShapeArray.com.
+ * Creates traditional arrays and java.util.ArrayList's of Circle objects
+ * It creates sorted versions of these lists.
+ * Generating metrics for max, min, and average radius's in each list.
+ * Also comparing each list to one another.
+ * 
  * @author <b>Author</b>: Matthew McCaughey
  * @author <br> <b>Date</b>: 2022 04-19
  * @author <br> <b>Assignment</b>: Lesson 6 Programming Assignment
@@ -26,25 +36,25 @@ public class CircleList
 	/**
 	 * The list of Circle objects.
 	 */
-	private Circle[] circleList;
+	private Circle[] circleArray;
 	
 	
 	/**
 	 * The list of sorted Circle objects.
 	 */
-	private Circle[] sortedCircleList;
+	private Circle[] sortedCircleArray;
 	
 	
 	/**
 	 * The ArrayList of Circle objects.
 	 */
-	private ArrayList<Circle> circleArray = new ArrayList<Circle>();
+	private ArrayList<Circle> circleArrayList = new ArrayList<Circle>();
 	
 	
 	/**
 	 * The ArrayList of sorted Circle objects.
 	 */
-	private ArrayList<Circle> sortedCircleArray = new ArrayList<Circle>();
+	private ArrayList<Circle> sortedCircleArrayList = new ArrayList<Circle>();
 	
 	
 	/**
@@ -67,13 +77,13 @@ public class CircleList
 	 * The setCircleList creates the array of circles with a random length between 0 and this.maxCircles.
 	 * Each Circle added to the array will have a random size between 1-100.
 	 */
-	private void setCircleList()
+	private void setCircleArray()
 	{
-		this.circleList = new Circle[random.nextInt(this.maxCircles + 1)];
+		this.circleArray = new Circle[random.nextInt(this.maxCircles + 1)];
 		
-		for (int i = 0; i < this.circleList.length; i++)
+		for (int i = 0; i < this.circleArray.length; i++)
 		{
-			this.circleList[i] = new Circle(this.random.nextDouble(99) + 1);
+			this.circleArray[i] = new Circle(this.random.nextDouble(99) + 1);
 		}
 		
 	} // End setCircleList()
@@ -83,7 +93,7 @@ public class CircleList
 	 * The setSortedCircleList method will copy the circleList into the sortedCircleList
 	 * and set it in ascending order.
 	 */
-	private void setSortedCircleList()
+	private void setSortedCircleArray()
 	{
 		// Set variables
 		int scan = 0; // Used to scan through array
@@ -92,30 +102,30 @@ public class CircleList
 		Circle minValue = new Circle(0); // Used to hold the value of the minimum number
 		
 		// Create sortedCircleList length
-		this.sortedCircleList = new Circle[this.circleList.length];
+		this.sortedCircleArray = new Circle[this.circleArray.length];
 		
 		// Copy circleList to sortedCircleList.
-		for (int i = 0; i < this.circleList.length; i++)
+		for (int i = 0; i < this.circleArray.length; i++)
 		{
-			this.sortedCircleList[i] = this.circleList[i];
+			this.sortedCircleArray[i] = this.circleArray[i];
 		}
 		
 		// Use selection sorting to organize list in ascending order
-		for (scan = 0; scan < (this.sortedCircleList.length-1); scan++)
+		for (scan = 0; scan < (this.sortedCircleArray.length-1); scan++)
 		{
 			minIndex = scan;
-			minValue = this.sortedCircleList[scan];
+			minValue = this.sortedCircleArray[scan];
 			
-			for (index = scan + 1; index < this.sortedCircleList.length; index++)
+			for (index = scan + 1; index < this.sortedCircleArray.length; index++)
 			{
-				if (this.sortedCircleList[index].getRadius() < minValue.getRadius())
+				if (this.sortedCircleArray[index].getRadius() < minValue.getRadius())
 				{
-					minValue = this.sortedCircleList[index];
+					minValue = this.sortedCircleArray[index];
 					minIndex = index;
 				}
 			}
-			this.sortedCircleList[minIndex] = this.sortedCircleList[scan];
-			this.sortedCircleList[scan] = minValue;
+			this.sortedCircleArray[minIndex] = this.sortedCircleArray[scan];
+			this.sortedCircleArray[scan] = minValue;
 		} // End selection sorting
 		
 	} // End setSortedCircleList method.
@@ -125,13 +135,13 @@ public class CircleList
 	 * The setCircleArray creates the arrayList object list of circles, with a random length between 0 and the this.maxCircles.
 	 * It then creates a Circle object for each index, with a random radius between 1 and 100.
 	 */
-	private void setCircleArray()
+	private void setCircleArrayList()
 	{
 		int size = this.random.nextInt(this.maxCircles + 1);
 		
 		for (int i = 0; i < size; i++)
 		{
-			this.circleArray.add(new Circle(this.random.nextDouble(99) + 1));
+			this.circleArrayList.add(new Circle(this.random.nextDouble(99) + 1));
 		}
 	} // End setCircleArray method.
 	
@@ -140,22 +150,22 @@ public class CircleList
 	 * The setSortedCircleArray method will copy the circleArray list to the sortedCircleArray list.
 	 * It will then sort it in ascending order.
 	 */
-	private void setSortedCircleArray()
+	private void setSortedCircleArrayList()
 	{
-		// Copy circleArray to sortedCircleArray
-		for (int i = 0; i < this.circleArray.size(); i++)
+		// Copy circleArrayList to sortedCircleArrayList
+		for (int i = 0; i < this.circleArrayList.size(); i++)
 		{
-			this.sortedCircleArray.add(this.circleArray.get(i));
+			this.sortedCircleArrayList.add(this.circleArrayList.get(i));
 		}
 		
-		// Sort sortedArrayList
-		for (int i = 0; i < this.sortedCircleArray.size(); i++)
+		// Sort sortedCircleArrayList
+		for (int i = 0; i < this.sortedCircleArrayList.size(); i++)
 		{
-			for (int index = 0; index < this.sortedCircleArray.size(); index++)
+			for (int index = 0; index < this.sortedCircleArrayList.size(); index++)
 			{
-				if (this.sortedCircleArray.get(index).getRadius() > this.sortedCircleArray.get(i).getRadius())
+				if (this.sortedCircleArrayList.get(index).getRadius() > this.sortedCircleArrayList.get(i).getRadius())
 				{
-					Collections.swap(this.sortedCircleArray, i, index);
+					Collections.swap(this.sortedCircleArrayList, i, index);
 				}
 			}
 		}
@@ -190,6 +200,7 @@ public class CircleList
 		
 	} // End getMin method.
 	
+	
 	/**
 	 * The getMin method will get the minimum radius in a Circle ArrayList as a percentage decimal.
 	 * @param circles A Circle Array List.
@@ -217,6 +228,7 @@ public class CircleList
 		
 	} // End getMin method.
 		
+	
 	/**
 	 * The getMax method will get the maximum radius in a traditional Circle array as a percentage decimal.
 	 * @param circles A Circle Array.
@@ -308,13 +320,13 @@ public class CircleList
 	 * @param circles An array of Circle.
 	 * @return An array of java.lang.Doubles, which are the max, min and average.
 	 */
-	private Double[] metrics(Circle[] circles)
+	private ArrayList<Double> metrics(Circle[] circles)
 	{
-		Double[] metrics = new Double[3];
+		ArrayList<Double> metrics = new ArrayList<Double>();
 		
-		metrics[0] = this.getMax(circles);
-		metrics[1] = this.getMin(circles);
-		metrics[2] = this.getAverage(circles);
+		metrics.add(this.getMax(circles));
+		metrics.add(this.getMin(circles));
+		metrics.add(this.getAverage(circles));
 		
 		return metrics;
 	} // End metrics method.
@@ -374,10 +386,10 @@ public class CircleList
 		ArrayList<Double> compare = new ArrayList<Double>();
 		
 		// Add metrics to ArrayList.
-		compare.add(less);
-		compare.add(equal);
-		compare.add(more);
-		compare.add(none);
+		compare.add(less / listMore.length);
+		compare.add(equal / listMore.length);
+		compare.add(more / listMore.length);
+		compare.add(none / listMore.length);
 		
 		return compare;
 		
@@ -415,20 +427,23 @@ public class CircleList
 				more += 1;
 			}
 			
-			// Create ArrayList object.
-			ArrayList<Double> compare = new ArrayList<Double>
-			
-			// Add metrics to ArrayList.
-			compare.add(less);
-			compare.add(equal);
-			compare.add(more);
-			compare.add(none);
-			
-			return compare;
-			
 		}
 		
+		none = listMore.size() - listLess.length;
+		
+		// Create ArrayList object.
+		ArrayList<Double> compare = new ArrayList<Double>();
+					
+		// Add metrics to ArrayList.
+		compare.add(less / listMore.size());
+		compare.add(equal / listMore.size());
+		compare.add(more / listMore.size());
+		compare.add(none / listMore.size());
+		
+		return compare;
+		
 	} // End compareLists method.
+	
 	
 	/**
 	 * Compare an ArrayLists Circles and a traditional arrays Circles based on their position in the list.
@@ -446,7 +461,7 @@ public class CircleList
 		double more = 0;
 		double none = 0;
 				
-		for (int i = 0; i < listLess.length; i++)
+		for (int i = 0; i < listLess.size(); i++)
 		{
 			if (listLess.get(i).getRadius() < listMore[i].getRadius())
 			{
@@ -460,28 +475,32 @@ public class CircleList
 			{
 				more += 1;
 			}
+		}
+		
+		none = listMore.length - listLess.size();
 			
-			// Create ArrayList object.
-			ArrayList<Double> compare = new ArrayList<Double>
+		// Create ArrayList object.
+		ArrayList<Double> compare = new ArrayList<Double>();
 			
-			// Add metrics to ArrayList.
-			compare.add(less);
-			compare.add(equal);
-			compare.add(more);
-			compare.add(none);
+		// Add metrics to ArrayList.
+		compare.add(less / listMore.length);
+		compare.add(equal / listMore.length);
+		compare.add(more / listMore.length);
+		compare.add(none / listMore.length);
 			
-			return compare;
+		return compare;
 			
 	} // End compareLists method.
 	
-		/**
-		 * Compare two ArrayLists Circles based on their position in the list.
-		 * Each circle is compared positionally and totals are counted for the number that are less,
-		 * the same, more or cannot be compared.
-		 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
-		 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
-		 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
-		 */
+	
+	/**
+	 * Compare two ArrayLists Circles based on their position in the list.
+	 * Each circle is compared positionally and totals are counted for the number that are less,
+	 * the same, more or cannot be compared.
+	 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
+	 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
+	 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
+	 */
 	private ArrayList<Double> compareLists(ArrayList<Circle> listLess, ArrayList<Circle> listMore)
 	{
 		// Set variables
@@ -490,7 +509,7 @@ public class CircleList
 		double more = 0;
 		double none = 0;
 				
-		for (int i = 0; i < listLess.length; i++)
+		for (int i = 0; i < listLess.size(); i++)
 		{
 			if (listLess.get(i).getRadius() < listMore.get(i).getRadius())
 			{
@@ -503,24 +522,101 @@ public class CircleList
 			else if (listLess.get(i).getRadius() > listMore.get(i).getRadius())
 			{
 				more += 1;
-			}
-			
+			}	
+		}
+		
+			none = listMore.size() - listLess.size();
+		
 			// Create ArrayList object.
-			ArrayList<Double> compare = new ArrayList<Double>
+			ArrayList<Double> compare = new ArrayList<Double>();
 			
 			// Add metrics to ArrayList.
-			compare.add(less);
-			compare.add(equal);
-			compare.add(more);
-			compare.add(none);
+			compare.add(less / listMore.size());
+			compare.add(equal / listMore.size());
+			compare.add(more / listMore.size());
+			compare.add(none / listMore.size());
 			
 			return compare;
 			
 	} // End compareLists method.
 		
 		
-	// TODO customerMetrics (PUBLIC)
-	// TODO customerComparedMetrics (PUBLIC)
+	/**
+	 * The getMetrics method returns the max, min and average of the traditional Circle array.
+	 * @return An array of java.lang.Double which are max, min and average.
+	 */
+	public ArrayList<Double> getTraditionalMetrics()
+	{
+		return this.metrics(this.circleArray);
+	} // End getTraditionalMetrics.
+	
+	
+	/**
+	 * The getMetrics method returns the max, min and average of the Circle ArrayList
+	 * @return An array of java.lang.Double which are max, min and average.
+	 */
+	public ArrayList<Double> getArrayListMetrics()
+	{
+		return this.metrics(this.circleArrayList);
+	} // End getArrayListMetrics.
+	
+	
+	/**
+	 * The getComparisons method returns the comparison metrics for each list.
+	 * @return An ArrayList of ArrayLists. 
+	 * Index[0] - Traditional array to sorted traditional array metrics.
+	 * Index[1] - ArrayList to sorted ArrayList metrics.
+	 * Index[2] - Traditional array to ArrayList.
+	 * Index[3] - Sorted traditional array to sorted ArrayList.
+	 */
+	public ArrayList<ArrayList<Double>> getComparisons()
+	{
+		// Create ArrayList
+		ArrayList<ArrayList<Double>> comparisons = new ArrayList<ArrayList<Double>>();
+		
+		// Compare traditional array to sorted traditional array
+		if(this.circleArray.length < this.sortedCircleArray.length)
+		{
+			comparisons.add(this.compareLists(this.circleArray, this.sortedCircleArray));
+		}
+		else
+		{
+			comparisons.add(this.compareLists(this.sortedCircleArray, this.circleArray));
+		}
+		
+		// Compare ArrayList to sorted ArrayList
+		if(this.circleArrayList.size() < this.sortedCircleArrayList.size())
+		{
+			comparisons.add(this.compareLists(this.circleArrayList, this.sortedCircleArrayList));
+		}
+		else
+		{
+			comparisons.add(this.compareLists(this.sortedCircleArrayList, this.circleArrayList));
+		}
+		
+		// Compare traditional array to ArrayList
+		if(this.circleArray.length < this.circleArrayList.size())
+		{
+			comparisons.add(this.compareLists(this.circleArray, this.circleArrayList));
+		}
+		else
+		{
+			comparisons.add(this.compareLists(this.circleArrayList, this.circleArray));
+		}
+		
+		// Compare sorted traditional array to sorted ArrayList
+		if(this.sortedCircleArray.length < this.sortedCircleArrayList.size())
+		{
+			comparisons.add(this.compareLists(this.sortedCircleArray, this.sortedCircleArrayList));
+		}
+		else
+		{
+			comparisons.add(this.compareLists(this.sortedCircleArrayList, this.sortedCircleArray));
+		}
+		
+		return comparisons;
+		
+	} // End getComparisons.
 	
 	
 	/**
@@ -533,17 +629,43 @@ public class CircleList
 		this.setMaxCircles(max);
 		
 		// Create traditional array
-		this.setCircleList();
-		
-		// Create arrayList
 		this.setCircleArray();
 		
-		// Create sorted traditional array
-		this.setSortedCircleList();
+		// Create arrayList
+		this.setCircleArrayList();
 		
-		// Create sorted arrayList
+		// Create sorted traditional array
 		this.setSortedCircleArray();
 		
+		// Create sorted arrayList
+		this.setSortedCircleArrayList();
+		
 	} // End CircleList constructor
+	
+	
+	public String toString()
+	{
+		// Create StringBuilder object.
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("\ntraditional max = ").append(this.getTraditionalMetrics().get(0));
+		sb.append("\ntraditional min = ").append(this.getTraditionalMetrics().get(1));
+		sb.append("\ntraditional avg = ").append(this.getTraditionalMetrics().get(2));
+		sb.append("\nArrayList max = ").append(this.getArrayListMetrics().get(0));
+		sb.append("\nArrayList min = ").append(this.getArrayListMetrics().get(1));
+		sb.append("\nArrayList avg = ").append(this.getArrayListMetrics().get(2));
+		
+		for (int i = 0; i < 4; i++)
+		{
+			sb.append("\n\nmetrics for lists " + i);
+			sb.append(" LESS = ").append(this.getComparisons().get(i).get(0));
+			sb.append(" EQUAL = ").append(this.getComparisons().get(i).get(1));
+			sb.append(" MORE = ").append(this.getComparisons().get(i).get(2));
+			sb.append(" NONE = ").append(this.getComparisons().get(i).get(3));
+		}
+		
+		return sb.toString();
+	} // End toString method.
+	
 	
 } // End CircleList class.
