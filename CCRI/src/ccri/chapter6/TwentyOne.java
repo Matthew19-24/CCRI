@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author <br> <b>Assignment</b>: Chapter 6, Problem 10 (6.10)
  *
  */
-public class aGameOfTwentyOne {
+public class TwentyOne {
 	/**
 	 * Holds a running total of the players score.
 	 */
@@ -203,7 +203,7 @@ public class aGameOfTwentyOne {
 	/**
 	 * Default constructor.
 	 */
-	public aGameOfTwentyOne()
+	public TwentyOne()
 	{
 		// Set player scores
 		this.playerScore = 0;

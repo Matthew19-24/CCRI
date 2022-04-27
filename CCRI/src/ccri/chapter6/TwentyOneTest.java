@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author <br> <b>Date</b>: 2022 04-12
  * @author <br> <b>Assignment</b>: Chapter 6, Problem 10 (6.10)
  */
-public class aGameOfTwentyOneTest {
+public class TwentyOneTest {
 
 	/**
 	 * The main method will simulate A Game of Twenty One using the aGameOfTwentyOne class.
@@ -28,7 +28,7 @@ public class aGameOfTwentyOneTest {
 		while (playAgain == 0)
 		{
 			// Create aGameOfTwentyOne object.
-			aGameOfTwentyOne game = new aGameOfTwentyOne();
+			TwentyOne game = new TwentyOne();
 			
 			// Play rounds of game
 			game.round();

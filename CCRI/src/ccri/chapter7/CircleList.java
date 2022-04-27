@@ -25,43 +25,35 @@ import java.util.Random;
  */
 public class CircleList 
 {
-	
-	
 	/**
 	 * The maximum number of circles for the list.
 	 */
 	private int maxCircles;
-	
 	
 	/**
 	 * The list of Circle objects.
 	 */
 	private Circle[] circleArray;
 	
-	
 	/**
 	 * The list of sorted Circle objects.
 	 */
 	private Circle[] sortedCircleArray;
-	
 	
 	/**
 	 * The ArrayList of Circle objects.
 	 */
 	private ArrayList<Circle> circleArrayList = new ArrayList<Circle>();
 	
-	
 	/**
 	 * The ArrayList of sorted Circle objects.
 	 */
 	private ArrayList<Circle> sortedCircleArrayList = new ArrayList<Circle>();
 	
-	
 	/**
 	 * Random object.
 	 */
 	private Random random = new Random();
-	
 	
 	/**
 	 * The setMaxCircles method sets the value in the maxCircles field.
@@ -70,8 +62,7 @@ public class CircleList
 	private void setMaxCircles(int max)
 	{
 		this.maxCircles = max;
-	}
-	
+	} // End setMaxCircles
 	
 	/**
 	 * The setCircleList creates the array of circles with a random length between 0 and this.maxCircles.
@@ -87,7 +78,6 @@ public class CircleList
 		}
 		
 	} // End setCircleList()
-	
 	
 	/**
 	 * The setSortedCircleList method will copy the circleList into the sortedCircleList
@@ -130,7 +120,6 @@ public class CircleList
 		
 	} // End setSortedCircleList method.
 	
-	
 	/**
 	 * The setCircleArray creates the arrayList object list of circles, with a random length between 0 and the this.maxCircles.
 	 * It then creates a Circle object for each index, with a random radius between 1 and 100.
@@ -144,7 +133,6 @@ public class CircleList
 			this.circleArrayList.add(new Circle(this.random.nextDouble(99) + 1));
 		}
 	} // End setCircleArray method.
-	
 	
 	/**
 	 * The setSortedCircleArray method will copy the circleArray list to the sortedCircleArray list.
@@ -172,38 +160,9 @@ public class CircleList
 		
 	} // End setSortedCircleArray method.
 	
-	
 	/**
-	 * The getMin method will get the minimum radius in a traditional Circle array as a percentage decimal.
-	 * @param circles A Circle array.
-	 * @return Minimum radius as a percentage decimal.
-	 */
-	private double getMin(Circle[] circles)
-	{
-		double min = 101;
-		
-		for (int i = 0; i < circles.length; i++)
-		{
-			if (circles[i].getRadius() < min)
-			{
-				min = circles[i].getRadius();
-			}
-		} 
-		
-		// Return 0 if no minimum was found
-		if (min == 101)
-		{
-			return 0;
-		}
-		
-		return min;
-		
-	} // End getMin method.
-	
-	
-	/**
-	 * The getMin method will get the minimum radius in a Circle ArrayList as a percentage decimal.
-	 * @param circles A Circle Array List.
+	 * The getMin method will get the minimum radius in a list of Circle objects as a percentage decimal.
+	 * @param circles A list of Circle objects.
 	 * @return Minimum radius as a percentage decimal.
 	 */
 	private double getMin(ArrayList<Circle> circles)
@@ -227,33 +186,10 @@ public class CircleList
 		return min;
 		
 	} // End getMin method.
-		
 	
 	/**
-	 * The getMax method will get the maximum radius in a traditional Circle array as a percentage decimal.
-	 * @param circles A Circle Array.
-	 * @return Maximum radius as a percentage decimal.
-	 */
-	private double getMax(Circle[] circles)
-	{
-		double max = 0;
-		
-		for (int i = 0; i < circles.length; i++)
-		{
-			if (circles[i].getRadius() > max)
-			{
-				max = circles[i].getRadius();
-			}
-		}
-		
-		return max;
-		
-	} // End getMax method.
-	
-	
-	/**
-	 * The getMax method will get the maximum radius in a Circle ArrayList as a percentage decimal.
-	 * @param circles A Circle Array List.
+	 * The getMax method will get the maximum radius in a a list of Circle objects as a percentage decimal.
+	 * @param circles A list of Circle objects.
 	 * @return Maximum radius as a percentage decimal.
 	 */
 	private double getMax(ArrayList<Circle> circles)
@@ -271,31 +207,9 @@ public class CircleList
 		return max;
 	} // End getMax method.
 	
-	
 	/**
-	 * The getAverage method will calculate the average radius in a traditional Circle array as a percentage decimal.
-	 * @param circles A Circle array.
-	 * @return The average radius of the array as a percentage decimal.
-	 */
-	private double getAverage(Circle[] circles)
-	{
-		double total = 0;
-		double average = 0;
-		
-		for (int i = 0; i < circles.length; i++)
-		{
-			total += circles[i].getRadius();
-		}
-		
-		average = total / circles.length;
-		
-		return average;
-	} // End getAverage method.
-	
-	
-	/**
-	 * The getAverage method will calculate the average radius in a Circle ArrayList as a percentage decimal.
-	 * @param circles A Circle ArrayList.
+	 * The getAverage method will calculate the average radius in a list of Circle objects as a percentage decimal.
+	 * @param circles A list of Circle objects.
 	 * @return The average radius of the array as a percentage decimal.
 	 */
 	private double getAverage(ArrayList<Circle> circles)
@@ -314,26 +228,9 @@ public class CircleList
 		
 	} // End getAverage method.
 	
-	
 	/**
-	 * Gets metrics (max, min, average) for a traditional Circle array.
-	 * @param circles An array of Circle.
-	 * @return An array of java.lang.Doubles, which are the max, min and average.
-	 */
-	private ArrayList<Double> metrics(Circle[] circles)
-	{
-		ArrayList<Double> metrics = new ArrayList<Double>();
-		
-		metrics.add(this.getMax(circles));
-		metrics.add(this.getMin(circles));
-		metrics.add(this.getAverage(circles));
-		
-		return metrics;
-	} // End metrics method.
-	
-	/**
-	 * Gets metrics (max, min, average) for a Circle ArrayList
-	 * @param circles An ArrayList of Circle
+	 * Gets metrics (max, min, average) for a list of Circle objects.
+	 * @param circles A list of Circle objects.
 	 * @return An ArrayList of java.lang.Doubles, which are the max, min and average.
 	 */
 	private ArrayList<Double> metrics(ArrayList<Circle> circles)
@@ -346,152 +243,24 @@ public class CircleList
 		
 		return metrics;
 	} // End metrics method.
-	
+		
+	/**
+	 * The getMetrics method returns the max, min and average of the traditional Circle array.
+	 * @return An array of java.lang.Double which are max, min and average.
+	 */
+	public ArrayList<Double> getTraditionalMetrics()
+	{
+		return this.metrics(converter(this.circleArray));
+	} // End getTraditionalMetrics.
 	
 	/**
-	 * Compare the two traditional array Circles based on their position in the list.
-	 * Each circle is compared positionally and totals are counted for the number that are less,
-	 * the same, more or cannot be compared.
-	 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
-	 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
-	 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
+	 * The getMetrics method returns the max, min and average of the Circle ArrayList
+	 * @return An array of java.lang.Double which are max, min and average.
 	 */
-	private ArrayList<Double> compareLists(Circle[] listLess, Circle[] listMore)
+	public ArrayList<Double> getArrayListMetrics()
 	{
-		// Set variables
-		double less = 0;
-		double equal = 0;
-		double more = 0;
-		double none = 0;
-		
-		// Compare lists.
-		for (int i = 0; i < listLess.length; i++)
-		{
-			if (listLess[i].getRadius() < listMore[i].getRadius())
-			{
-				less += 1;
-			}
-			else if (listLess[i].getRadius() == listMore[i].getRadius())
-			{
-				equal += 1;
-			}
-			else if (listLess[i].getRadius() > listMore[i].getRadius())
-			{
-				more += 1;
-			}
-		}
-		none = listMore.length - listLess.length;
-		
-		// Create ArrayList object.
-		ArrayList<Double> compare = new ArrayList<Double>();
-		
-		// Add metrics to ArrayList.
-		compare.add(less / listMore.length);
-		compare.add(equal / listMore.length);
-		compare.add(more / listMore.length);
-		compare.add(none / listMore.length);
-		
-		return compare;
-		
-	} // End compareLists method.
-	
-	
-	/**
-	 * Compare a traditional arrays Circles and an ArrayLists Circles based on their position in the list.
-	 * Each circle is compared positionally and totals are counted for the number that are less,
-	 * the same, more or cannot be compared.
-	 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
-	 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
-	 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
-	 */
-	private ArrayList<Double> compareLists(Circle[] listLess, ArrayList<Circle> listMore)
-	{
-		// Set variables
-		double less = 0;
-		double equal = 0;
-		double more = 0;
-		double none = 0;
-		
-		for (int i = 0; i < listLess.length; i++)
-		{
-			if (listLess[i].getRadius() < listMore.get(i).getRadius())
-			{
-				less +=1;
-			}
-			else if (listLess[i].getRadius() == listMore.get(i).getRadius())
-			{
-				equal += 1;
-			}
-			else if (listLess[i].getRadius() > listMore.get(i).getRadius())
-			{
-				more += 1;
-			}
-			
-		}
-		
-		none = listMore.size() - listLess.length;
-		
-		// Create ArrayList object.
-		ArrayList<Double> compare = new ArrayList<Double>();
-					
-		// Add metrics to ArrayList.
-		compare.add(less / listMore.size());
-		compare.add(equal / listMore.size());
-		compare.add(more / listMore.size());
-		compare.add(none / listMore.size());
-		
-		return compare;
-		
-	} // End compareLists method.
-	
-	
-	/**
-	 * Compare an ArrayLists Circles and a traditional arrays Circles based on their position in the list.
-	 * Each circle is compared positionally and totals are counted for the number that are less,
-	 * the same, more or cannot be compared.
-	 * @param listLess The list of circles. The number of items in this list is <= the number of items in listMore.
-	 * @param listMore The list of circles. The number of items in this list is >= the number of items in listLess.
-	 * @return An ArrayList of java.lang.Double, which are less, equal, more or cannot be compared.
-	 */
-	private ArrayList<Double> compareLists(ArrayList<Circle> listLess, Circle[] listMore)
-	{
-		// Set variables
-		double less = 0;
-		double equal = 0;
-		double more = 0;
-		double none = 0;
-				
-		for (int i = 0; i < listLess.size(); i++)
-		{
-			if (listLess.get(i).getRadius() < listMore[i].getRadius())
-			{
-				less +=1;
-			}
-			else if (listLess.get(i).getRadius() == listMore[i].getRadius())
-			{
-				equal += 1;
-			}
-			else if (listLess.get(i).getRadius() > listMore[i].getRadius())
-			{
-				more += 1;
-			}
-		}
-		
-		none = listMore.length - listLess.size();
-			
-		// Create ArrayList object.
-		ArrayList<Double> compare = new ArrayList<Double>();
-			
-		// Add metrics to ArrayList.
-		compare.add(less / listMore.length);
-		compare.add(equal / listMore.length);
-		compare.add(more / listMore.length);
-		compare.add(none / listMore.length);
-			
-		return compare;
-			
-	} // End compareLists method.
-	
+		return this.metrics(this.circleArrayList);
+	} // End getArrayListMetrics.
 	
 	/**
 	 * Compare two ArrayLists Circles based on their position in the list.
@@ -539,27 +308,6 @@ public class CircleList
 			return compare;
 			
 	} // End compareLists method.
-		
-		
-	/**
-	 * The getMetrics method returns the max, min and average of the traditional Circle array.
-	 * @return An array of java.lang.Double which are max, min and average.
-	 */
-	public ArrayList<Double> getTraditionalMetrics()
-	{
-		return this.metrics(this.circleArray);
-	} // End getTraditionalMetrics.
-	
-	
-	/**
-	 * The getMetrics method returns the max, min and average of the Circle ArrayList
-	 * @return An array of java.lang.Double which are max, min and average.
-	 */
-	public ArrayList<Double> getArrayListMetrics()
-	{
-		return this.metrics(this.circleArrayList);
-	} // End getArrayListMetrics.
-	
 	
 	/**
 	 * The getComparisons method returns the comparison metrics for each list.
@@ -575,49 +323,55 @@ public class CircleList
 		ArrayList<ArrayList<Double>> comparisons = new ArrayList<ArrayList<Double>>();
 		
 		// Compare traditional array to sorted traditional array
-		if(this.circleArray.length < this.sortedCircleArray.length)
-		{
-			comparisons.add(this.compareLists(this.circleArray, this.sortedCircleArray));
-		}
-		else
-		{
-			comparisons.add(this.compareLists(this.sortedCircleArray, this.circleArray));
-		}
+		comparisons.add(this.compare(this.converter(this.circleArray), this.converter(this.sortedCircleArray)));
 		
 		// Compare ArrayList to sorted ArrayList
-		if(this.circleArrayList.size() < this.sortedCircleArrayList.size())
-		{
-			comparisons.add(this.compareLists(this.circleArrayList, this.sortedCircleArrayList));
-		}
-		else
-		{
-			comparisons.add(this.compareLists(this.sortedCircleArrayList, this.circleArrayList));
-		}
+		comparisons.add(this.compare(this.circleArrayList, this.sortedCircleArrayList));
 		
 		// Compare traditional array to ArrayList
-		if(this.circleArray.length < this.circleArrayList.size())
-		{
-			comparisons.add(this.compareLists(this.circleArray, this.circleArrayList));
-		}
-		else
-		{
-			comparisons.add(this.compareLists(this.circleArrayList, this.circleArray));
-		}
+		comparisons.add(this.compare(this.converter(this.circleArray), this.circleArrayList));
 		
 		// Compare sorted traditional array to sorted ArrayList
-		if(this.sortedCircleArray.length < this.sortedCircleArrayList.size())
-		{
-			comparisons.add(this.compareLists(this.sortedCircleArray, this.sortedCircleArrayList));
-		}
-		else
-		{
-			comparisons.add(this.compareLists(this.sortedCircleArrayList, this.sortedCircleArray));
-		}
+		comparisons.add(this.compare(this.converter(this.sortedCircleArray), this.sortedCircleArrayList));
 		
 		return comparisons;
 		
-	} // End getComparisons.
+	} // End getComparisons method.
 	
+	/**
+	 * The compare method returns the comparison metrics for each list.
+	 * @return An ArrayList of the comparison metrics 
+	 */
+	private ArrayList<Double> compare(ArrayList<Circle> list1, ArrayList<Circle> list2)
+	{	
+		// Compare arrays
+		if(list1.size() < list2.size())
+		{
+			return this.compareLists(list1, list2);
+		}
+		else
+		{
+			return this.compareLists(list2, list1);
+		}
+		
+	} // End getComparisons method.
+	
+	/**
+	 * The converter method copies a traditional array into a java.util.ArrayList
+	 * @param traditional The traditional array.
+	 * @return The java.util.Array list of the old traditional array.
+	 */
+	private ArrayList<Circle> converter(Circle[] traditional)
+	{
+		ArrayList<Circle> arrayList= new ArrayList<Circle>();
+		
+		for (int i = 0; i < traditional.length; i++)
+		{
+			arrayList.add(traditional[i]);
+		}
+		
+		return arrayList;
+	} // End converter method.
 	
 	/**
 	 * Constructor
@@ -642,7 +396,10 @@ public class CircleList
 		
 	} // End CircleList constructor
 	
-	
+	/**
+	 * The toString method returns String representation of object.
+	 * @return The String representation of object.
+	 */
 	public String toString()
 	{
 		// Create StringBuilder object.
@@ -666,6 +423,5 @@ public class CircleList
 		
 		return sb.toString();
 	} // End toString method.
-	
 	
 } // End CircleList class.

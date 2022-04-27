@@ -24,10 +24,13 @@ public class CircleListTest {
 	 * @param compare An ArrayList of each ArrayList of comparison data.
 	 * @return String of the compared data.
 	 */
-	private static String displayComparisons(ArrayList<ArrayList<Double>> compare)
+	private static String displayComparisons(CircleList circles)
 	{
 		// Create StringBuilder object.
 		StringBuilder sb = new StringBuilder();
+		
+		// Get comparison ArrayList
+		ArrayList<ArrayList<Double>> compare = circles.getComparisons();
 		
 		// Compare traditional to sorted traditional
 		sb.append("\n\nComparing traditional array to the sorted traditional array.");
@@ -48,7 +51,11 @@ public class CircleListTest {
 		return sb.toString();
 	}
 	
-	
+	/**
+	 * The getComparisons method gets the comparisons of the array's and returns them as a String.
+	 * @param compare The array holding the comparisons.
+	 * @return String holding the comparison data.
+	 */
 	private static String getComparisons(ArrayList<Double> compare)
 	{
 		// Create StringBuilder object.
@@ -61,8 +68,7 @@ public class CircleListTest {
 		sb.append(" None : ").append(String.format("%.2f", compare.get(3)));
 		
 		return sb.toString();
-	}
-	
+	} // End getComparisons.
 	
 	/**
 	 * The displayMetrics method will display to the user the min, max and average of
@@ -104,7 +110,6 @@ public class CircleListTest {
 		
 		return sb.toString();
 	} // End getMetrics method.
-	
 	
 	/**
 	 * Creates String for a welcome message.
@@ -156,7 +161,7 @@ public class CircleListTest {
 		sb.append(displayMetrics(circles));
 		
 		// Append Comparison metrics
-		sb.append(displayComparisons(circles.getComparisons()));
+		sb.append(displayComparisons(circles));
 		
 		// Display data
 		JOptionPane.showMessageDialog(null, sb);
